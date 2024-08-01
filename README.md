@@ -151,3 +151,40 @@ Manages user details and operations.
 | GET             | /api/users         | Retrieve all users               | 200 OK           |
 | PUT             | /api/users/{id}    | Update a user by ID              | 200 OK           |
 | DELETE          | /api/users/{id}    | Delete a user by ID              | 200 OK           |
+
+## Entity Classes
+
+### Role
+
+Represents user roles in the system.
+
+- **Table**: `roles`
+- **Fields**:
+  - `id` (Long, Primary Key)
+  - `name` (RoleName, Enum: ROLE_USER, ROLE_ADMIN)
+
+### Task
+
+Represents tasks assigned to users.
+
+- **Table**: `tasks`
+- **Fields**:
+  - `id` (Long, Primary Key)
+  - `title` (String, Required)
+  - `description` (String, Optional)
+  - `dueDate` (LocalDateTime, Required)
+  - `status` (TaskStatus, Enum: TODO, IN_PROGRESS, COMPLETED)
+  - `assignedUser` (User, Many-to-One)
+
+### User
+
+Represents users of the system.
+
+- **Table**: `users`
+- **Fields**:
+  - `id` (Long, Primary Key)
+  - `username` (String, Required, Unique)
+  - `email` (String, Required, Unique)
+  - `password` (String, Required)
+  - `roles` (Set<Role>, Many-to-Many)
+  - `tasks` (Set<Task>, One-to-Many)
