@@ -117,3 +117,37 @@ Manages user details and operations.
 - **Description**: Deletes a user by their ID.
 - **Status Codes**:
   - `200 OK`: User deleted successfully.
+
+
+## AuthController
+
+Manages user authentication and registration.
+
+| **HTTP Method** | **Endpoint**         | **Description**            | **Status Codes** |
+|-----------------|-----------------------|----------------------------|------------------|
+| POST            | /api/auth/signup      | Register a new user        | 200 OK           |
+| POST            | /api/auth/login       | Authenticate a user        | 200 OK           |
+
+## TaskController
+
+Handles CRUD operations for tasks.
+
+| **HTTP Method** | **Endpoint**                | **Description**                        | **Status Codes** |
+|-----------------|------------------------------|----------------------------------------|------------------|
+| POST            | /api/tasks                   | Create a new task                     | 201 Created      |
+| PUT             | /api/tasks/{id}              | Update an existing task               | 200 OK           |
+| DELETE          | /api/tasks/{id}              | Delete a task                         | 204 No Content   |
+| GET             | /api/tasks/{id}              | Retrieve a task by ID                 | 200 OK           |
+| GET             | /api/tasks                   | Retrieve all tasks                    | 200 OK           |
+| GET             | /api/tasks/user/{userId}     | Retrieve tasks by user ID             | 200 OK           |
+
+## UserController
+
+Manages user details and operations.
+
+| **HTTP Method** | **Endpoint**       | **Description**                  | **Status Codes** |
+|-----------------|---------------------|----------------------------------|------------------|
+| GET             | /api/users/{id}    | Retrieve a user by ID            | 200 OK           |
+| GET             | /api/users         | Retrieve all users               | 200 OK           |
+| PUT             | /api/users/{id}    | Update a user by ID              | 200 OK           |
+| DELETE          | /api/users/{id}    | Delete a user by ID              | 200 OK           |
